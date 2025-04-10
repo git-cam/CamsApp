@@ -28,6 +28,6 @@ app.get('/api/test', (req, res) => {
       res.send('Hello from our server!')
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server is running on http://localhost:${PORT}`)
 })
