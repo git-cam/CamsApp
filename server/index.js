@@ -1,12 +1,12 @@
 //index.js
 //import '.././index.css';
-const express = require('express');
+import express from 'express';
 const app = express();
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import dotenv from 'dotenv';
-import arduinoRoutes from './controllers/arduino.js';  // Importing routes
+import arduinoRoutes from './controllers/arduino.js';  // Use .js extension when importing files
 
 dotenv.config();
 app.use(cors())
@@ -15,6 +15,7 @@ app.use(cors())
 const PORT = process.env.PORT || 3000;
 app.use(cors());               
 app.use(morgan('dev'));         
+const __dirname = new URL('.', import.meta.url).pathname;
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
